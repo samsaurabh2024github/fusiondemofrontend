@@ -7,7 +7,7 @@ export default function AdminSidebar() {
     { name: "Dashboard", path: "/admin/dashboard" },
     { name: "Schools", path: "/admin/schools" },
     { name: "Classes", path: "/admin/classes" },
-    { name: "Teachers", path: "/admin/teachers" },
+    { name: "Teachers", path: "/admin/coaches" },
     { name: "Assign Class", path: "/admin/assign-class" }
   ];
 
