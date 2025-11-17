@@ -1,9 +1,13 @@
-import React from 'react'
+import CoachSidebar from "../components/CoachSidebar";
 
-const CoachLayout = () => {
+export default function CoachLayout({ children }) {
   return (
-    <div>CoachLayout</div>
-  )
-}
+    <div className="flex min-h-screen bg-gray-100">
+      <CoachSidebar />
 
-export default CoachLayout
+      <div className="flex-1 p-6">
+        {children}
+      </div>
+    </div>
+  );
+}

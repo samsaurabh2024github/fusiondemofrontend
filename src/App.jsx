@@ -13,6 +13,7 @@ import AddAttendance from "./pages/coach/AddAttendance";
 
 import ProtectedRoute from "./utils/ProtectedRoute";
 import AssignCoachClass from "./pages/admin/AssignCoache";
+import AdminAttendance from "./pages/admin/Attendance";
 
 function App() {
   return (
@@ -67,6 +68,17 @@ function App() {
           }
         />
 
+
+
+        <Route
+  path="/admin/attendance"
+  element={
+    <ProtectedRoute role="admin">
+      <AdminAttendance />
+    </ProtectedRoute>
+  }
+/>
+
         {/* ===================== COACH ROUTES ===================== */}
         <Route
           path="/coach/dashboard"
@@ -85,6 +97,13 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+
+
+
+
+
+
       </Routes>
     </BrowserRouter>
   );

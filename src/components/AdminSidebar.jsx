@@ -1,6 +1,13 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function AdminSidebar() {
+
+     const navigate = useNavigate();
+
+        const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
   const { pathname } = useLocation();
 
   const menu = [
@@ -8,7 +15,8 @@ export default function AdminSidebar() {
     { name: "Schools", path: "/admin/schools" },
     { name: "Classes", path: "/admin/classes" },
     { name: "Teachers", path: "/admin/coaches" },
-    { name: "Assign Class", path: "/admin/assign-class" }
+    { name: "Assign Class", path: "/admin/assign-class" },
+     { name: "All Attendance Record", path: "/admin/attendance" }
   ];
 
   return (
@@ -31,6 +39,13 @@ export default function AdminSidebar() {
           </li>
         ))}
       </ul>
+
+      <button
+          onClick={handleLogout}
+          className="block w-full text-left mt-4 bg-red-600 hover:bg-red-700 px-3 py-2 rounded text-white"
+        >
+          Logout
+        </button>
     </div>
   );
 }
