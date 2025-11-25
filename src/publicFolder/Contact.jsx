@@ -8,6 +8,7 @@ const Contact = () => {
 
 
          <div className="relative w-full h-[80vh] md:h-[90vh] flex items-center justify-center">
+
                 
                       {/* Background Image */}
                       <img
@@ -28,6 +29,8 @@ const Contact = () => {
                         <p className="text-white text-sm sm:text-base md:text-lg mt-4 font-medium">
                          Empowering Students Through Sports, Fitness & Wellness
                         </p>
+
+                        <p>skldfj ksdfjk</p>
                       </div>
                 
                       
