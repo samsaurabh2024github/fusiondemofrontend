@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import aboutBanner from '../assets/aboutbanner.jpg'
+import aboutBanner from '../assets/aboutBanner.jpg'
 const Blog = () => {
   const blogs = [
     {

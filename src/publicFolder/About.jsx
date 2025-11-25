@@ -1,5 +1,5 @@
 import React from 'react'
-import aboutBanner from '../assets/aboutbanner.jpg'
+import aboutBanner from '../assets/aboutBanner.jpg'
 import { FaHeart, FaHeartbeat, FaLightbulb, FaRunning, FaShieldAlt, FaTrophy, FaUsers } from 'react-icons/fa';
 
 import { FaMedal, FaClipboardCheck, FaTools, FaUserCheck, FaFutbol } from "react-icons/fa";
