@@ -16,7 +16,9 @@ export default function AdminSidebar() {
     { name: "Classes", path: "/admin/classes" },
     { name: "Teachers", path: "/admin/coaches" },
     { name: "Assign Class", path: "/admin/assign-class" },
-     { name: "All Attendance Record", path: "/admin/attendance" }
+     { name: "All Attendance Record", path: "/admin/attendance" },
+       { name: "All Attendance Record2", path: "/admin/attendanceAll" },
+        { name: "Admin graph", path: "/admin/analiticsChart" },
   ];
 
   return (
