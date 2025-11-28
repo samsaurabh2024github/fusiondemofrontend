@@ -169,6 +169,7 @@ export default function GalleryPage() {
     <p className="text-xl text-black mt-4">
       Explore our multiple images from each of our sports programs.
     </p>
+    <p>our galary </p>
   </div>
 </div>
 
