@@ -167,7 +167,7 @@ export default function GalleryPage() {
       Our <span className="text-black">Champions</span> in Action
     </h1>
     <p className="text-xl text-black mt-4">
-      Explore multiple images from each of our sports programs.
+      Explore our multiple images from each of our sports programs.
     </p>
   </div>
 </div>
