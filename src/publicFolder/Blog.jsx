@@ -1,38 +1,47 @@
 import React from "react";
+import Img1 from '../assets/blog1.jpeg';
+import Img2 from '../assets/blog2.jpeg';
+import Img3 from '../assets/blog3.jpeg';
 
+import Img4 from '../assets/blog4.jpeg';
+import Img5 from '../assets/blog5.jpg';
+import Img6 from '../assets/blog6.jpeg';
 
-import aboutBanner from '../assets/aboutBanner.jpg'
+// import aboutBanner from '../assets/aboutBanner.jpg'
+
+import blogbanner from '../assets/blogBanner1.jpg'
+
 const Blog = () => {
   const blogs = [
     {
       id: 1,
-      title: "Why Choose a Female Physiotherapist?",
-      img: "https://i.imgur.com/z0w0lQY.png", // replace with your image
+      title: "How Sports Improve Academic Performance",
+      img: Img1, // replace with your image
     },
     {
       id: 2,
-      title: "Understanding Autism Spectrum Disorder: Awareness & Understanding",
-      img: "https://i.imgur.com/xGZcTLx.png", // replace
+      title: "Importance of Physical Literacy in Kids",
+      img: Img2, // replace
     },
     {
       id: 3,
-      title: "ADHD and Autism Together: Can You Understand?",
-      img: "https://i.imgur.com/xvU3G2f.png", // replace
+      title: "Why Movement Matters for Mental Health",
+      img: Img3, // replace
     },
       {
       id: 4,
-      title: "Why Choose a Female Physiotherapist?",
-      img: "https://i.imgur.com/z0w0lQY.png", // replace with your image
+      title: "The Science Behind Motor Skills",
+      img: Img4, // replace with your image
     },
     {
       id: 5,
-      title: "Understanding Autism Spectrum Disorder: Awareness & Understanding",
-      img: "https://i.imgur.com/xGZcTLx.png", // replace
+      title: "How to Prevent Sports Injuries in Children",
+      img: Img5, // replace
     },
     {
       id: 6,
-      title: "ADHD and Autism Together: Can You Understand?",
-      img: "https://i.imgur.com/xvU3G2f.png", // replace
+      title: "Role of Nutrition in Childhood Growth",
+      img: Img6, // replace
     },
   ];
 
@@ -40,11 +49,11 @@ const Blog = () => {
     <div className="">
 
 
-         <div className="relative w-full h-[80vh] md:h-[90vh] flex items-center justify-center">
+         <div className="relative w-full h-[80vh] md:h-[70vh] flex items-center justify-center">
         
               {/* Background Image */}
               <img
-                src={aboutBanner}
+                src={blogbanner}
                 alt="Parenting Tips"
                 className="absolute inset-0 w-full h-full object-cover"
               />

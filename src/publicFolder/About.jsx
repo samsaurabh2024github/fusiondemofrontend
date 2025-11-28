@@ -99,7 +99,7 @@ const About = () => {
     <div>
 
 
-        <div className="relative w-full h-[80vh] md:h-[90vh] flex items-center justify-center">
+        <div className="relative w-full h-[80vh] md:h-[70vh] flex items-center justify-center">
 
       {/* Background Image */}
       <img
@@ -385,53 +385,6 @@ const About = () => {
 
 
 
-        <div className="relative w-full bg-black py-20 overflow-hidden">
-
-      {/* WHITE STRIP */}
-      <div className="absolute top-10 w-[150%] -rotate-6 left-[-10%]">
-        <div className="bg-white py-4 flex overflow-hidden whitespace-nowrap">
-          <div className="marquee-left flex gap-10">
-            {items.map((item, idx) => (
-              <span key={idx} className="text-black text-3xl font-bold tracking-wider">
-                {item} •
-              </span>
-            ))}
-          </div>
-
-          {/* duplicate for seamless loop */}
-          <div className="marquee-left flex gap-10">
-            {items.map((item, idx) => (
-              <span key={idx} className="text-black text-3xl font-bold tracking-wider">
-                {item} •
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* GREEN STRIP */}
-      <div className="absolute top-28 w-[150%] rotate-6 left-[-10%]">
-        <div className="bg-blue-400 py-4 flex overflow-hidden whitespace-nowrap">
-          <div className="marquee-right flex gap-10">
-            {items.map((item, idx) => (
-              <span key={idx} className="text-black text-3xl font-bold tracking-wider">
-                {item} •
-              </span>
-            ))}
-          </div>
-
-          {/* duplicate */}
-          <div className="marquee-right flex gap-10">
-            {items.map((item, idx) => (
-              <span key={idx} className="text-black text-3xl font-bold tracking-wider">
-                {item} •
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-    </div>
 
 
     <div className="container mx-auto p-4">

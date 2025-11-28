@@ -28,6 +28,7 @@ import company2 from "../assets/fusionPartner2.png";
 import company3 from "../assets/fusionPartner3.png";
 import company4 from "../assets/fusionPartner4.png";
 import company5 from "../assets/fusionPartner1.png";
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -158,9 +159,11 @@ export default function Home() {
             Welcome to Fusion Sports & Education academy
           </p>
           
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-full transition duration-300 text-base sm:text-lg md:text-xl w-full sm:w-auto">
-            Register for free
-          </button>
+       <Link to="/contact">
+  <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg transition duration-300 text-base sm:text-lg md:text-xl w-full sm:w-auto cursor-pointer">
+    Contact Us
+  </button>
+</Link>
         </div>
 
         {/* Right image */}
@@ -244,6 +247,83 @@ export default function Home() {
 
 
 {/* ======================= */}
+
+<section className="px-6 md:px-20 py-1 bg-gray-50">
+
+
+<div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        {/* LEFT SIDE */}
+        <div className="flex flex-col justify-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Experts
+          </h2>
+
+          <p className="text-lg text-gray-600 mb-10 max-w-md">
+            Learn from international professionals and gain valuable industry insights from sport leaders.
+          </p>
+
+          {/* <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-full w-fit flex items-center gap-2">
+            View all Experts
+            <span className="text-xl">›</span>
+          </button> */}
+        </div>
+
+        {/* RIGHT SIDE – 3 EXPERT CARDS */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          
+          {/* CARD 1 */}
+          <div className="text-center">
+            <img
+              src="path_to_antoine_image.jpg"
+              className="w-40 h-40 object-cover rounded-lg mx-auto mb-4"
+              alt="Expert"
+            />
+            <h3 className="text-lg font-semibold text-gray-900">
+             Ujjawal kumar, Mped
+            </h3>
+            <p className="text-gray-600 text-sm">
+              National Hockey player
+            </p>
+          </div>
+
+          {/* CARD 2 */}
+          <div className="text-center">
+            <img
+              src="path_to_daniela_image.jpg"
+              className="w-40 h-40 object-cover rounded-lg mx-auto mb-4"
+              alt="Expert"
+            />
+            <h3 className="text-lg font-semibold text-gray-900">
+              Sapna Choudhary, Mped
+            </h3>
+            <p className="text-gray-600 text-sm">
+            National Cricket and gymnastics
+            </p>
+          </div>
+
+          {/* CARD 3 */}
+          <div className="text-center">
+            <img
+              src="path_to_deniz_image.jpg"
+              className="w-40 h-40 object-cover rounded-lg mx-auto mb-4"
+              alt="Expert"
+            />
+            <h3 className="text-lg font-semibold text-gray-900">
+              Kishor kachhad, Mped
+            </h3>
+            <p className="text-gray-600 text-sm">
+              National Kho-Kho player
+            </p>
+          </div>
+        </div>
+      </div>
+
+      </section>
+
+
+
+{/* ==================== */}
   
 
  {/* Certification Partners Slider Section */}
@@ -486,14 +566,16 @@ referrerPolicy="no-referrer-when-downgrade"
 </div>
 </section>
 
+   
+
 {/* ==================== */}
- <section className="py-16 px-6 bg-white">
-      {/* Title */}
+ {/* <section className="py-16 px-6 bg-white">
+    
       <h1 className="text-4xl font-bold text-green-700 text-center">
         Are you suffering from any of this?
       </h1>
 
-      {/* Decorative Line */}
+      
       <div className="flex justify-center mt-3 mb-12">
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 bg-green-700 rounded-full"></div>
@@ -503,14 +585,14 @@ referrerPolicy="no-referrer-when-downgrade"
         </div>
       </div>
 
-      {/* Grid Section */}
+    
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
         {items.map((item, index) => (
           <div key={index} className="flex items-start space-x-4 ">
-            {/* Icon */}
+         
             <div>{item.icon}</div>
 
-            {/* Text */}
+          
             <div>
               <h3 className="text-2xl font-bold">{item.title}</h3>
               <p className="text-gray-600 text-sm mt-1">{item.desc}</p>
@@ -518,7 +600,7 @@ referrerPolicy="no-referrer-when-downgrade"
           </div>
         ))}
       </div>
-    </section>
+    </section> */}
 
 
     {/* ========================== */}
