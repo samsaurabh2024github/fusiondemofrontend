@@ -10,6 +10,7 @@ import Img6 from '../assets/blog6.jpeg';
 // import aboutBanner from '../assets/aboutBanner.jpg'
 
 import blogbanner from '../assets/blogBanner1.jpg'
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const blogs = [
@@ -103,12 +104,12 @@ const Blog = () => {
             />
 
             {/* Title */}
-            <a
-              href="#"
-              className="block mt-4 text-xl font-semibold text-black hover:underline"
+           <Link
+              to={`/blogs/${blog.id}`}
+              className="text-xl font-bold mt-4 block hover:underline"
             >
               {blog.title}
-            </a>
+            </Link>
           </div>
         ))}
       </div>

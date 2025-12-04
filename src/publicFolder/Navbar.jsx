@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-blue-300 bg-opacity-80 backdrop-blur-md text-black px-6 md:px-10 py-4 flex items-center justify-between shadow">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-100 via-slate-300 to-slate-300  bg-opacity-80 backdrop-blur-md text-black px-6 md:px-10 py-4 flex items-center justify-between shadow">
         
         {/* Logo */}
         <Link
@@ -27,7 +27,9 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 font-medium text-sm">
           <Link to="/" className="hover:text-gray-700 transition">Home</Link>
+          <Link to="/programs" className="hover:text-gray-700 transition">Fusion Programs</Link>
           <Link to="/about" className="hover:text-gray-700 transition">About</Link>
+            
           <Link to="/gallery" className="hover:text-gray-700 transition">Gallery</Link>
           <Link to="/blog" className="hover:text-gray-700 transition">Blog</Link>
           <Link to="/contact" className="hover:text-gray-700 transition">Contact</Link>
@@ -57,9 +59,13 @@ export default function Navbar() {
           <Link to="/" className="hover:text-gray-800" onClick={closeMenu}>
             Home
           </Link>
+           <Link to="/program" className="hover:text-gray-800" onClick={closeMenu}>
+            Fusion Programs
+          </Link>
           <Link to="/about" className="hover:text-gray-800" onClick={closeMenu}>
             About
           </Link>
+           
           <Link to="/gallery" className="hover:text-gray-800" onClick={closeMenu}>
             Gallery
           </Link>

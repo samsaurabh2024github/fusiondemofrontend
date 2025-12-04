@@ -29,6 +29,7 @@ import company3 from "../assets/fusionPartner3.png";
 import company4 from "../assets/fusionPartner4.png";
 import company5 from "../assets/fusionPartner1.png";
 import { Link } from 'react-router-dom';
+import FusionStatsSection from './FusionStatsSection';
 
 export default function Home() {
 
@@ -321,7 +322,9 @@ export default function Home() {
 
       </section>
 
+{/* =============== */}
 
+<FusionStatsSection/>
 
 {/* ==================== */}
   

@@ -27,6 +27,8 @@ import Blog from "./publicFolder/Blog";
 import Footer from "./publicFolder/Footer";
 
 import ProtectedRoute from "./utils/ProtectedRoute";
+import BlogDetail from "./publicFolder/BlogDetail";
+import FusionProgramsPage from "./publicFolder/FusionProgramsPage";
 
 // Layout Component
 function Layout({ children }) {
@@ -89,8 +91,10 @@ function App() {
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/programs" element={<FusionProgramsPage />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blogs/:id" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
 
           <Route path="/login" element={<Login />} />

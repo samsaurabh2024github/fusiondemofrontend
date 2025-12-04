@@ -95,15 +95,18 @@ export default function CoachDashboard() {
                 <th className="border p-2">Present</th>
               </tr>
             </thead>
-            <tbody>
-              {attendanceHistory.map((a) => (
-                <tr key={a._id} className="text-center">
-                  <td className="border p-2">{a.className}</td>
-                  <td className="border p-2">{a.date}</td>
-                  <td className="border p-2">{a.attendance}</td>
-                </tr>
-              ))}
-            </tbody>
+         <tbody>
+  {attendanceHistory.map((a) => (
+    <tr key={a._id} className="text-center">
+      <td className="border p-2">
+        {a.classId?.className || a.className}
+      </td>
+      <td className="border p-2">{a.date}</td>
+      <td className="border p-2">{a.attendance}</td>
+    </tr>
+  ))}
+</tbody>
+
           </table>
         )}
       </div>

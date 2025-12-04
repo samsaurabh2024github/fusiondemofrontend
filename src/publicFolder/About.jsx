@@ -76,14 +76,14 @@ const About = () => {
 
     
 
-      const items = [
-    "HOCKEY",
-    "FOOTBALL",
-    "LAWN TENNIS",
-    "RUNNING",
-    "BADMINTON",
-    "BASKETBALL",
-  ];
+  //     const items = [
+  //   "HOCKEY",
+  //   "FOOTBALL",
+  //   "LAWN TENNIS",
+  //   "RUNNING",
+  //   "BADMINTON",
+  //   "BASKETBALL",
+  // ];
 
    const items4 = [
     { icon: <FaUserCheck />, text: "Expert coaches assigned as per school needs" },

@@ -218,20 +218,21 @@ export default function AddAttendance() {
       if (pres > str) return alert("Present cannot be more than class strength");
     }
 
-    const body = {
-      date: form.date,
-      schoolId: schoolId,
-      classId: classId,
-      period: form.period,
-      program: form.program,
-      className: form.className || (classInfo ? classInfo.className : ""),
-      section: form.section,
-      attendance: notConducted ? 0 : Number(form.present || 0),
-      strength: notConducted ? 0 : Number(form.strength || 0),
-      absent: notConducted ? 0 : computeAbsent(),
-      activity: form.activity || "",
-      reason: form.reason || ""
-    };
+  const body = {
+  date: form.date,
+  schoolId: schoolId,
+  classId: classId,
+  period: form.period,
+  program: form.program,
+  className: form.className || (classInfo ? classInfo.className : ""),
+  section: form.section,
+  attendance: notConducted ? 0 : Number(form.present || 0),
+  strength: notConducted ? 0 : Number(form.strength || 0),
+  absent: notConducted ? 0 : computeAbsent(),
+  activity: form.activity || "",
+  reason: form.reason || ""
+};
+
 
     try {
       setLoading(true);
