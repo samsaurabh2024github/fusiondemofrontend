@@ -332,7 +332,7 @@ export default function Home() {
  {/* Certification Partners Slider Section */}
       <section className="px-6 md:px-20 py-1 bg-gray-50">
         <h2 className="text-4xl font-bold mb-10 text-center text-gray-800">
-          Our Certification Partners
+          Our Certification Partners 
         </h2>
 
         <Slider {...settings}>
