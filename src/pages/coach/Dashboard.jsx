@@ -47,69 +47,93 @@ export default function CoachDashboard() {
 
   return (
     <CoachLayout>
-      <h1 className="text-3xl font-bold mb-4">Coach Dashboard</h1>
+     <h1 className="text-2xl lg:text-3xl font-bold mb-4 text-center">
+  Coach Dashboard
+</h1>
+
 
       {/* COACH CARD */}
-      <div className="bg-white p-4 rounded shadow mb-6">
-        <h2 className="text-xl font-semibold">Welcome, {coach.name}</h2>
-        <p>Email: {coach.email}</p>
-        <p>School: {schoolName}</p>
-      </div>
+     <div className="bg-white p-4 rounded shadow mb-6">
+  <h2 className="text-lg lg:text-xl font-semibold">
+    Welcome, {coach.name}
+  </h2>
+
+  <div className="text-sm lg:text-base space-y-1 mt-2">
+    <p>Email: {coach.email}</p>
+    <p>School: {schoolName}</p>
+  </div>
+</div>
+
 
       {/* ASSIGNED CLASSES */}
-      <div className="bg-white p-6 rounded shadow mb-6">
-        <h2 className="text-xl font-semibold mb-3">Assigned Classes</h2>
+     <div className="bg-white p-4 lg:p-6 rounded shadow mb-6">
+  <h2 className="text-lg lg:text-xl font-semibold mb-3">
+    Assigned Classes
+  </h2>
 
-        {assignedClasses.length === 0 ? (
-          <p>No classes assigned.</p>
-        ) : (
-          <ul className="space-y-2">
-            {assignedClasses.map((cls) => (
-              <li key={cls._id} className="flex justify-between border p-3 rounded">
-                <span>{cls.className}</span>
+  {assignedClasses.length === 0 ? (
+    <p>No classes assigned.</p>
+  ) : (
+    <ul className="space-y-3">
+      {assignedClasses.map((cls) => (
+        <li
+          key={cls._id}
+          className="flex flex-col lg:flex-row justify-between gap-2 border p-3 rounded"
+        >
+          <span className="font-medium">{cls.className}</span>
 
-                <a
-                  href={`/coach/attendance/add/${cls._id}`}
-                  className="bg-blue-600 text-white px-3 py-1 rounded"
-                >
-                  Take Attendance
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+          <a
+            href={`/coach/attendance/add/${cls._id}`}
+            className="bg-blue-600 text-white px-3 py-2 text-sm rounded text-center"
+          >
+            Take Attendance
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>
+
 
       {/* ATTENDANCE HISTORY */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-xl font-semibold mb-3">Your Attendance History</h2>
+      <div className="bg-white p-4 lg:p-6 rounded shadow">
+  <h2 className="text-lg lg:text-xl font-semibold mb-3">
+    Your Attendance History
+  </h2>
 
-        {attendanceHistory.length === 0 ? (
-          <p>No attendance history.</p>
-        ) : (
-          <table className="w-full border">
-            <thead className="bg-gray-200">
-              <tr>
-                <th className="border p-2">Class</th>
-                <th className="border p-2">Date</th>
-                <th className="border p-2">Present</th>
-              </tr>
-            </thead>
-         <tbody>
-  {attendanceHistory.map((a) => (
-    <tr key={a._id} className="text-center">
-      <td className="border p-2">
-        {a.classId?.className || a.className}
-      </td>
-      <td className="border p-2">{a.date}</td>
-      <td className="border p-2">{a.attendance}</td>
-    </tr>
-  ))}
-</tbody>
+  {attendanceHistory.length === 0 ? (
+    <p>No attendance history.</p>
+  ) : (
+    <div className="overflow-x-auto">
+      <table className="min-w-full border text-sm">
+        <thead className="bg-gray-200">
+          <tr>
+            <th className="border p-2">Class</th>
+            <th className="border p-2">Date</th>
+            <th className="border p-2">Present</th>
+            <th className="border p-2">School</th>
+          </tr>
+        </thead>
 
-          </table>
-        )}
-      </div>
+        <tbody>
+          {attendanceHistory.map((a) => (
+            <tr key={a._id} className="text-center">
+              <td className="border p-2">
+                {a.classId?.className || a.className}
+              </td>
+              <td className="border p-2">{a.date}</td>
+              <td className="border p-2">{a.attendance}</td>
+              <td className="border p-2">
+                {a.schoolId?.name || a.schoolName}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+</div>
+
     </CoachLayout>
   );
 }

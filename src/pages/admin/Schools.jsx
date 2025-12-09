@@ -62,7 +62,7 @@ export default function Schools() {
   return (
     <AdminLayout>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Manage Schools</h1>
+        <h1 className="text-3xl mt-12 sm:mt-10 lg:mt-0 font-bold">Manage Schools</h1>
       </div>
 
       {/* Add School Form */}

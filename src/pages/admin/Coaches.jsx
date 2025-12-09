@@ -5,103 +5,32 @@ import API from "../../api/axiosInstance";
 export default function Coaches() {
   const [coaches, setCoaches] = useState([]);
   const [schools, setSchools] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
     phone: "",
-    schoolId: ""
   });
 
-  const [loading, setLoading] = useState(false);
-
-  // Fetch all schools
+  // Fetch schools
   const fetchSchools = async () => {
     try {
       const res = await API.get("/schools");
       setSchools(res.data);
     } catch (err) {
-      console.log(err);
-      alert("Error fetching schools");
+      alert("Failed to load schools");
     }
   };
 
-  // Fetch all coaches
+  // Fetch coaches
   const fetchCoaches = async () => {
     try {
       const res = await API.get("/coaches/all");
       setCoaches(res.data);
-    } catch (err) {
-      console.log(err);
-      alert("Error fetching coaches");
-    }
-  };
-
-  // Add new coach
-  const addCoach = async (e) => {
-    e.preventDefault();
-
-    if (!form.name || !form.email || !form.password) {
-      alert("Name, email, and password are required");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      await API.post("/coaches/add", {
-        ...form,
-        role: "coach"
-      });
-
-      alert("Coach added successfully");
-
-      setForm({
-        name: "",
-        email: "",
-        password: "",
-        phone: "",
-        schoolId: ""
-      });
-
-      fetchCoaches();
-
-    } catch (err) {
-      console.log(err);
-      alert("Error adding coach");
-    }
-
-    setLoading(false);
-  };
-
-  // Assign school to coach
-  const assignSchool = async (coachId, schoolId) => {
-    try {
-      await API.post("/coaches/assign", {
-        coachId,
-        schoolId,
-      });
-
-      alert("School assigned successfully");
-      fetchCoaches();
-
-    } catch (err) {
-      console.log(err);
-      alert("Error assigning school");
-    }
-  };
-
-  // Delete coach
-  const deleteCoach = async (id) => {
-    if (!confirm("Delete this coach?")) return;
-
-    try {
-      await API.delete(`/auth/delete/${id}`);
-      fetchCoaches();
-    } catch (err) {
-      console.log(err);
-      alert("Error deleting coach");
+    } catch {
+      alert("Failed to load coaches");
     }
   };
 
@@ -110,105 +39,171 @@ export default function Coaches() {
     fetchCoaches();
   }, []);
 
+  // Add coach
+  const addCoach = async (e) => {
+    e.preventDefault();
+
+    if (!form.name || !form.email || !form.password) {
+      return alert("Name, email & password required");
+    }
+
+    setLoading(true);
+
+    try {
+      await API.post("/coaches/add", { ...form, role: "coach" });
+      alert("Coach added");
+      setForm({ name: "", email: "", password: "", phone: "" });
+      fetchCoaches();
+    } catch {
+      alert("Failed to add coach");
+    }
+
+    setLoading(false);
+  };
+
+  const assignSchool = async (coachId, schoolId) => {
+    if (!schoolId) return;
+    try {
+      await API.post("/coaches/assign", { coachId, schoolId });
+      fetchCoaches();
+    } catch {
+      alert("Assignment failed");
+    }
+  };
+
+  const deleteCoach = async (id) => {
+    if (!window.confirm("Delete coach?")) return;
+    try {
+      await API.delete(`/auth/delete/${id}`);
+      fetchCoaches();
+    } catch {
+      alert("Delete failed");
+    }
+  };
+
   return (
     <AdminLayout>
-      <h1 className="text-3xl font-bold mb-6">Manage Coaches</h1>
+      <h1 className="text-2xl lg:text-3xl mt-12 sm:mt-10 lg:mt-0 font-bold mb-6">
+        Manage Coaches
+      </h1>
 
-      {/* Add Coach */}
-      <form onSubmit={addCoach} className="bg-white p-6 rounded shadow mb-10 w-full md:w-1/2">
+      {/* ADD COACH */}
+      <form
+        onSubmit={addCoach}
+        className="bg-white p-4 rounded shadow mb-10 w-full lg:max-w-xl"
+      >
         <h2 className="text-xl font-semibold mb-4">Add New Coach</h2>
 
-        <input
-          type="text"
-          placeholder="Coach Name"
-          className="border p-3 w-full rounded mb-3"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
+        {["name", "email", "password", "phone"].map((field) => (
+          <input
+            key={field}
+            type={field === "password" ? "password" : "text"}
+            placeholder={field.toUpperCase()}
+            className="border p-3 w-full rounded mb-3"
+            value={form[field]}
+            onChange={(e) =>
+              setForm({ ...form, [field]: e.target.value })
+            }
+          />
+        ))}
 
-        <input
-          type="email"
-          placeholder="Email"
-          className="border p-3 w-full rounded mb-3"
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="border p-3 w-full rounded mb-3"
-          value={form.password}
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
-        />
-
-        <input
-          type="text"
-          placeholder="Phone (optional)"
-          className="border p-3 w-full rounded mb-3"
-          value={form.phone}
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-        />
-
-        <button className="bg-blue-600 text-white px-4 py-2 rounded" disabled={loading}>
+        <button
+          className="w-full sm:w-auto bg-blue-600 text-white px-5 py-2 rounded"
+          disabled={loading}
+        >
           {loading ? "Adding..." : "Add Coach"}
         </button>
       </form>
 
-      {/* Coach List */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-xl font-semibold mb-4">All Coaches</h2>
+      {/* ================= MOBILE + TABLET VIEW ================= */}
+      <div className="grid gap-4 lg:hidden">
+        {coaches.map((c) => (
+          <div
+            key={c._id}
+            className="bg-white p-4 rounded shadow space-y-2"
+          >
+            <p><b>Name:</b> {c.name}</p>
+            <p><b>Email:</b> {c.email}</p>
+            <p>
+              <b>School:</b>{" "}
+              {c.school ? c.school.name : "Not Assigned"}
+            </p>
 
-        {coaches.length === 0 ? (
-          <p>No coaches found</p>
-        ) : (
-          <table className="w-full border">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border p-2">Name</th>
-                <th className="border p-2">Email</th>
-                <th className="border p-2">School</th>
-                <th className="border p-2">Assign School</th>
-                <th className="border p-2">Actions</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {coaches.map((c) => (
-                <tr key={c._id} className="text-center">
-                  <td className="border p-2">{c.name}</td>
-                  <td className="border p-2">{c.email}</td>
-                  <td className="border p-2">
-                    {c.school ? c.school.name : "Not Assigned"}
-                  </td>
-
-                  <td className="border p-2">
-                    <select
-                      className="border p-2 rounded"
-                      onChange={(e) => assignSchool(c._id, e.target.value)}
-                    >
-                      <option value="">Select School</option>
-                      {schools.map((s) => (
-                        <option key={s._id} value={s._id}>
-                          {s.name}
-                        </option>
-                      ))}
-                    </select>
-                  </td>
-
-                  <td className="border p-2">
-                    <button
-                      onClick={() => deleteCoach(c._id)}
-                      className="bg-red-600 text-white px-3 py-1 rounded"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+            <select
+              onChange={(e) =>
+                assignSchool(c._id, e.target.value)
+              }
+              className="border p-2 rounded w-full"
+              defaultValue=""
+            >
+              <option value="">Assign School</option>
+              {schools.map((s) => (
+                <option key={s._id} value={s._id}>
+                  {s.name}
+                </option>
               ))}
-            </tbody>
-          </table>
-        )}
+            </select>
+
+            <button
+              onClick={() => deleteCoach(c._id)}
+              className="bg-red-600 text-white w-full py-2 rounded"
+            >
+              Delete
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* ================= DESKTOP TABLE ================= */}
+      <div className="hidden lg:block bg-white p-6 rounded shadow">
+        <table className="w-full border text-sm">
+          <thead className="bg-gray-200">
+            <tr>
+              <th className="border p-2">Name</th>
+              <th className="border p-2">Email</th>
+              <th className="border p-2">School</th>
+              <th className="border p-2">Assign</th>
+              <th className="border p-2">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {coaches.map((c) => (
+              <tr key={c._id} className="text-center">
+                <td className="border p-2">{c.name}</td>
+                <td className="border p-2">{c.email}</td>
+                <td className="border p-2">
+                  {c.school ? c.school.name : "Not Assigned"}
+                </td>
+
+                <td className="border p-2">
+                  <select
+                    className="border p-2 rounded"
+                    onChange={(e) =>
+                      assignSchool(c._id, e.target.value)
+                    }
+                  >
+                    <option value="">Select</option>
+                    {schools.map((s) => (
+                      <option key={s._id} value={s._id}>
+                        {s.name}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+
+                <td className="border p-2">
+                  <button
+                    onClick={() => deleteCoach(c._id)}
+                    className="bg-red-600 text-white px-3 py-1 rounded"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </AdminLayout>
   );

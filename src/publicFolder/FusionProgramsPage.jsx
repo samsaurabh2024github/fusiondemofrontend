@@ -156,7 +156,7 @@ export default function FusionProgramsPage() {
 
       {/* In-School Program */}
       {activeTab === "in-school" && (
-        <div className="max-w-7xl mx-auto px-4 pb-20">
+        <div id="in-school" className="max-w-7xl mx-auto px-4 pb-20">
 
           <div className="bg-slate-800/90 p-12 rounded-3xl border-2 border-slate-700 mb-12">
             <h2 className="text-4xl font-black text-white mb-6">Complete Breakdown</h2>
@@ -222,7 +222,7 @@ export default function FusionProgramsPage() {
 
       {/* After School Program */}
       {activeTab === "after-school" && (
-        <div className="max-w-7xl mx-auto px-4 pb-20">
+        <div id="after-school"  className="max-w-7xl mx-auto px-4 pb-20">
           <div className="bg-slate-800 p-12 rounded-3xl border-2 border-slate-700">
 
             <h2 className="text-4xl font-black text-white mb-8">After School Sports Program</h2>
@@ -248,7 +248,7 @@ export default function FusionProgramsPage() {
 
       {/* Academy */}
       {activeTab === "academy" && (
-        <div className="max-w-7xl mx-auto px-4 pb-20">
+        <div id="academy" className="max-w-7xl mx-auto px-4 pb-20">
 
           <div className="bg-slate-800 p-12 rounded-3xl border-2 border-slate-700">
 
@@ -274,7 +274,7 @@ export default function FusionProgramsPage() {
       )}
 
       {/* EQUIPMENT SECTION */}
-      <div className="max-w-7xl mx-auto px-4 pb-20">
+      <div id="equipment" className="max-w-7xl mx-auto px-4 pb-20">
         <h2 className="text-center text-5xl text-white font-black mb-12">Why Our Equipment Matters</h2>
 
         <div className="bg-slate-800 p-12 rounded-3xl border border-slate-700">
@@ -294,7 +294,7 @@ export default function FusionProgramsPage() {
       </div>
 
       {/* ASSESSMENTS */}
-      <div className="max-w-7xl mx-auto px-4 pb-20">
+      <div id="assessments" className="max-w-7xl mx-auto px-4 pb-20">
         <h2 className="text-center text-5xl text-white font-black mb-12">Assessments & Reports</h2>
 
         <div className="bg-slate-800 p-12 rounded-3xl border border-slate-700">
@@ -328,7 +328,7 @@ export default function FusionProgramsPage() {
       </div>
 
       {/* NUTRITION & WELLNESS */}
-      <div className="max-w-7xl mx-auto px-4 pb-20">
+      <div id="wellness" className="max-w-7xl mx-auto px-4 pb-20">
         <h2 className="text-center text-5xl text-white font-black mb-12">Nutrition & Wellness</h2>
 
         <div className="bg-slate-800 p-12 rounded-3xl border border-slate-700">

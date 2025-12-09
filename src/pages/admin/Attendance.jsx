@@ -21,7 +21,7 @@ export default function AdminAttendance() {
 
   return (
     <AdminLayout>
-      <h1 className="text-2xl font-bold mb-4">All Attendance Records</h1>
+      <h1 className="text-2xl mt-12 sm:mt-10 lg:mt-0 font-bold mb-4">All Attendance Records</h1>
 
       {attendance.length === 0 ? (
         <p>No attendance found.</p>

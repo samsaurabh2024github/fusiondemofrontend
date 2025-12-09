@@ -143,7 +143,7 @@ const fetchCoaches = async () => {
   // ===============================
   return (
     <AdminLayout>
-      <h1 className="text-3xl font-bold mb-6">Assign Class to Coach</h1>
+      <h1 className="text-3xl mt-12 sm:mt-10 lg:mt-0 font-bold mb-6">Assign Class to Coach</h1>
 
       {/* FORM */}
       <form

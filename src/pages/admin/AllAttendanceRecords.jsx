@@ -249,11 +249,12 @@ export default function AllAttendanceRecords() {
   return (
     <AdminLayout>
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">All Attendance Records</h1>
+      <h1 className="text-2xl mt-12 sm:mt-10 lg:mt-0 font-bold mb-4">All Attendance Records</h1>
 
       {/* Filters */}
       <div className="bg-white p-4 rounded shadow mb-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3">
+       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+
           <FilterSelect
             label="Coach"
             value={filterCoach}
@@ -298,12 +299,14 @@ export default function AllAttendanceRecords() {
           </div>
         </div>
 
-        {/* Search + Export */}
-        <div className="flex justify-between mt-4 flex-wrap gap-3">
+        {/* Search + Export
+        <div className="flex justify-between mt-4 flex-wrap gap-3"> */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mt-4 gap-3">
+
           <div className="flex gap-2 items-center">
             <input
               placeholder="Search..."
-              className="border p-2 rounded w-72"
+              className="border p-2 rounded w-full sm:72"
               value={search}
               onChange={e => setSearch(e.target.value)}
             />
@@ -333,8 +336,8 @@ export default function AllAttendanceRecords() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded shadow overflow-auto">
-        <table className="min-w-full text-sm">
+      <div className="bg-white rounded shadow overflow-x-auto">
+        <table className="min-w-[900px] text-sm">
           <thead>
             <tr className="bg-gray-100">
               <Th title="Date" sortKey="date" sort={sort} toggleSort={toggleSort} />
