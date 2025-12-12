@@ -29,6 +29,7 @@ import Footer from "./publicFolder/Footer";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import BlogDetail from "./publicFolder/BlogDetail";
 import FusionProgramsPage from "./publicFolder/FusionProgramsPage";
+import CareerPage from "./publicFolder/Career";
 
 // Layout Component
 function Layout({ children }) {
@@ -55,7 +56,7 @@ function App() {
         <div>
           {/* WhatsApp */}
           <a
-            href="https://wa.me/916205656821"
+            href="https://wa.me/918492856107"
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-24 right-6 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-xl z-50"
@@ -94,6 +95,7 @@ function App() {
           <Route path="/programs" element={<FusionProgramsPage />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
+            <Route path="/career" element={<CareerPage />} />
           <Route path="/blogs/:id" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
 

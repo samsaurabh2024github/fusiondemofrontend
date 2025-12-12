@@ -100,23 +100,55 @@ const Footer = () => {
         {/* LINKS */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
-          <ul className="space-y-2 text-gray-300">
+          <ul className="space-y-1 text-gray-300">
             <li><a href="/" className="hover:text-white">Home</a></li>
             <li><a href="/about" className="hover:text-white">About us</a></li>
             <li><a href="/gallery" className="hover:text-white">Galary</a></li>
             <li><a href="/contact" className="hover:text-white">Contact</a></li>
+             <li><a href="/career" className="hover:text-white">Career</a></li>
           </ul>
         </div>
 
-        {/* CONTACT */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
-          <ul className="text-gray-300 space-y-2">
-            <li>Email: fusionsportacademy07@gmail.com</li>
-            <li>Phone: +91 8492856107</li>
-            <li>Address: Office no5 Prima Garden, Orwad , India</li>
-          </ul>
-        </div>
+      {/* CONTACT */}
+<div>
+  <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
+  <ul className="text-gray-300 space-y-2">
+
+    {/* Email */}
+    <li>
+      <a 
+        href="mailto:fusionsportacademy07@gmail.com" 
+        className="hover:text-yellow-400 transition"
+      >
+        Email: fusionsportacademy07@gmail.com
+      </a>
+    </li>
+
+    {/* Phone */}
+    <li>
+      <a 
+        href="tel:+918492856107" 
+        className="hover:text-yellow-400 transition"
+      >
+        Phone: +91 8492856107
+      </a>
+    </li>
+
+    {/* Address (Google Maps Link) */}
+    <li>
+      <a 
+        href="https://www.google.com/maps/search/?api=1&query=Prima+Garden+Orwad+India" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="hover:text-yellow-400 transition"
+      >
+        Address: Office no5 Prima Garden, Orwad, India
+      </a>
+    </li>
+
+  </ul>
+</div>
+
 
       </div>
 

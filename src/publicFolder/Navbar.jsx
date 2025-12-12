@@ -78,6 +78,7 @@ export default function Navbar() {
 
           <Link to="/about" className="hover:text-gray-700 transition">About</Link>
           <Link to="/gallery" className="hover:text-gray-700 transition">Gallery</Link>
+            <Link to="/career" className="hover:text-gray-700 transition">Career</Link>
           <Link to="/blog" className="hover:text-gray-700 transition">Blog</Link>
           <Link to="/contact" className="hover:text-gray-700 transition">Contact</Link>
         </div>
@@ -148,6 +149,7 @@ export default function Navbar() {
           <Link to="/about" onClick={closeMenu}>About</Link>
           <Link to="/gallery" onClick={closeMenu}>Gallery</Link>
           <Link to="/blog" onClick={closeMenu}>Blog</Link>
+            <Link to="/career" onClick={closeMenu}>Career</Link>
           <Link to="/contact" onClick={closeMenu}>Contact</Link>
         </div>
       )}
